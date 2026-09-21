@@ -1,31 +1,33 @@
 import Categoria from "./Categoria"
 import { categorias } from "../data/categorias"
+import logo from "../assets/logo.svg"
 
 
 export default function Sidebar() {
   return (
-    <aside className="md:w-72">
-    <div className="md:w-72">
+    <aside className="md:w-[164px] md:shrink-0">
+    <div className="h-[88px]">
       <img
-         className="w-40"
-         src="img/logo.svg"
+         className="w-[100px]"
+         src={logo}
          alt="Imagen Logo"
       />
-      Sidebar
+    
     </div>
-     <div className="mt-10">
+     <div>
          {categorias.map( categoria => (
            <Categoria
+                key={categoria.id}
                 categoria={categoria} />
          ))}
      </div>
-      <div className="my-5 py-5">
+      <div className="px-[7px] py-3">
         <button
         type="button"
-        className="text-center bg-red-500 w-full p-3 font-bold text-white
+        className="text-center bg-red-500 w-full py-2 text-[10px] font-bold text-white
         truncate"
         >
-        Cancela Orden
+        Cancelar Orden
         </button>
 
       </div>
