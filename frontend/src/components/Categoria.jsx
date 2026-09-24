@@ -1,18 +1,24 @@
 
-
+import { useQuiosco } from "../hooks/useQuiosco"
 export default function Categorias({categoria}) {
    
-  const  {icono, nombre}= categoria
+  const {handleClickCategoria, categoriaActual} = useQuiosco();
+  const  {id,icono, nombre}= categoria
+  const resaltar = categoriaActual?.id === id ? 'bg-amber-400' : 'bg-white'
 
   return (
-    <div className="flex min-h-[39px] items-center gap-2 border-b w-full py-1 
-    hover:bg-amber-400 cursor-pointer">
+    <div className={`${resaltar} flex items-center gap-4 border w-full p-3 hover:bg-amber-400 cursor-pointer`}>
       <img
         alt="Imagen Icono"
         src={`/img/icono_${icono}.svg`}
         className="w-8"
         />
-        <p className="text-[11px] font-bold cursor-pointer truncate">{nombre}</p>
+        <button 
+        className="text-lg font-bold cursor-pointer truncate"
+        type="button"
+        onClick={() => handleClickCategoria(id)}
+
+          >{nombre}</button>
     </div>
   )
 }

@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
-
 import Sidebar from "../components/Sidebar";
-
+import Resumen from "../components/Resumen";
+import { useQuiosco } from "../hooks/useQuiosco";
 export default function Layout() {
+  const { modal } = useQuiosco();
+  console.log(modal)
   return (
-    <div className="min-h-screen bg-white md:flex">
+    <div className=" md:flex">
       <Sidebar />
-     <main className="min-w-0 flex-1 md:max-w-[686px]">
+     <main className=" flex-1 h-screen overflow-scroll bg-gray-100 p-3">
        <Outlet/>
      </main>
      
-      
+      <Resumen />
     </div>
   );
 }
