@@ -8,6 +8,7 @@ const QuioscoProvider = ({ children }) => {
     const [categoriaActual, setCategoriaActual] = useState(categoriasDB[0]);
     const [modal, setModal] = useState(false);
     const [producto, setProducto] = useState({});
+    const [pedido, setPedido] = useState([]);
 
 
 const handleClickCategoria = id => {
@@ -24,6 +25,10 @@ const handleClickCategoria = id => {
  
  }
 
+ const handleAgregarPedido = ({categoria_id, imagen, ...producto})  => {
+  setPedido([...pedido, producto])
+ }
+
   return (
     <QuioscoContext.Provider 
     value={{
@@ -33,7 +38,9 @@ const handleClickCategoria = id => {
         modal,
         handleClickModal,
         producto,
-        handleSetProducto
+        handleSetProducto,
+        pedido,
+        handleAgregarPedido
 
     }}
     >{children}

@@ -1,4 +1,4 @@
-import { formatearDinero } from '../assets/helpers'
+import { formatearDinero } from '../helpers'
 import { useQuiosco } from '../hooks/useQuiosco'
 export default function Producto({ producto }) {
  const { handleClickModal, handleSetProducto } = useQuiosco()
